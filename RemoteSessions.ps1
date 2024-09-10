@@ -4,7 +4,7 @@ param (
 )
 
 # Checks to make sure the samaccount is valid
-If(-not(Get-ADUser $samaccount)){
+If(-not(Get-ADUser $samaccount -erroraction SilentlyContinue)){
     Write-Host "Cannot find $samaccount in the domain" -ForegroundColor Red
     Exit
 }
